@@ -1,0 +1,28 @@
+{
+    "@##########_GENERAL_##########": {},
+    "emptyList": "No items",
+
+    "@##########_ERROR_##########": {},
+    "unexpected": "Something went wrong",
+    
+    "@##########_ADD_NOTE_##########": {},
+    "saveButton": "Save",
+    "noteField": "Enter note",
+    "addNotePageTitle": "Enter note",
+
+    "@##########_HOME_##########": {},
+    "addNoteFABTooltip": "Add Note",
+    "homePageTitle": "Notes",
+   
+    "@##########_VALIDATORS_##########": {},
+    "validatorEmail": "This field must be a valid email",
+    "validatorMinLength": "This field must be at least {value} digits long",
+    "@validatorMinLength": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "validatorRequired": "This field is required"
+}

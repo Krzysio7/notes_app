@@ -6,7 +6,7 @@ abstract class HiveLocalDataSourceProxy<TableType, DtoType> {
     required this.boxName,
     required this.adapterToRegister,
   }) {
-    registerAdapter<TableType>(adapterToRegister);
+    _init();
   }
 
   final TypeAdapter<TableType> adapterToRegister;
@@ -15,6 +15,7 @@ abstract class HiveLocalDataSourceProxy<TableType, DtoType> {
 
   void _init() {
     boxInstance = Hive.openBox(boxName);
+    registerAdapter<TableType>(adapterToRegister);
   }
 
   Future<Box<TableType>> get getBoxInstance async => _openBox();
@@ -47,9 +48,19 @@ abstract class HiveLocalDataSourceProxy<TableType, DtoType> {
     await box.put(key, value);
   }
 
+  Future<void> add(TableType value) async {
+    final Box<TableType> box = await _openBox();
+    await box.add(value);
+  }
+
   Future<void> putAll(Map<String, TableType> items) async {
     final Box<TableType> box = await _openBox();
     await box.putAll(items);
+  }
+
+   Future<void> addAll(List<TableType> items) async {
+    final Box<TableType> box = await _openBox();
+    await box.addAll(items);
   }
 
   Future<void> delete(String key) async {

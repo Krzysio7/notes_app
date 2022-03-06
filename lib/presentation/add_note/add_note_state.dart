@@ -8,5 +8,5 @@ class AddNoteState with _$AddNoteState {
 
   const factory AddNoteState.success() = AddNoteStateSuccess;
 
-  const factory AddNoteState.error({Exception? exception}) = AddNoteStateError;
+  const factory AddNoteState.error(String message) = AddNoteStateError;
 }

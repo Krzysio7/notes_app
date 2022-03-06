@@ -30,9 +30,9 @@ class _$AddNoteStateTearOff {
     return const AddNoteStateSuccess();
   }
 
-  AddNoteStateError error({Exception? exception}) {
+  AddNoteStateError error(String message) {
     return AddNoteStateError(
-      exception: exception,
+      message,
     );
   }
 }
@@ -47,7 +47,7 @@ mixin _$AddNoteState {
     required TResult Function() idle,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(Exception? exception) error,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,7 +55,7 @@ mixin _$AddNoteState {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,7 +63,7 @@ mixin _$AddNoteState {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,7 +154,7 @@ class _$AddNoteStateIdle implements AddNoteStateIdle {
     required TResult Function() idle,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(Exception? exception) error,
+    required TResult Function(String message) error,
   }) {
     return idle();
   }
@@ -165,7 +165,7 @@ class _$AddNoteStateIdle implements AddNoteStateIdle {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
   }) {
     return idle?.call();
   }
@@ -176,7 +176,7 @@ class _$AddNoteStateIdle implements AddNoteStateIdle {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -271,7 +271,7 @@ class _$AddNoteStateLoading implements AddNoteStateLoading {
     required TResult Function() idle,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(Exception? exception) error,
+    required TResult Function(String message) error,
   }) {
     return loading();
   }
@@ -282,7 +282,7 @@ class _$AddNoteStateLoading implements AddNoteStateLoading {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
   }) {
     return loading?.call();
   }
@@ -293,7 +293,7 @@ class _$AddNoteStateLoading implements AddNoteStateLoading {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -388,7 +388,7 @@ class _$AddNoteStateSuccess implements AddNoteStateSuccess {
     required TResult Function() idle,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(Exception? exception) error,
+    required TResult Function(String message) error,
   }) {
     return success();
   }
@@ -399,7 +399,7 @@ class _$AddNoteStateSuccess implements AddNoteStateSuccess {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
   }) {
     return success?.call();
   }
@@ -410,7 +410,7 @@ class _$AddNoteStateSuccess implements AddNoteStateSuccess {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -466,7 +466,7 @@ abstract class $AddNoteStateErrorCopyWith<$Res> {
   factory $AddNoteStateErrorCopyWith(
           AddNoteStateError value, $Res Function(AddNoteStateError) then) =
       _$AddNoteStateErrorCopyWithImpl<$Res>;
-  $Res call({Exception? exception});
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -482,13 +482,13 @@ class _$AddNoteStateErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? exception = freezed,
+    Object? message = freezed,
   }) {
     return _then(AddNoteStateError(
-      exception: exception == freezed
-          ? _value.exception
-          : exception // ignore: cast_nullable_to_non_nullable
-              as Exception?,
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -496,14 +496,14 @@ class _$AddNoteStateErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddNoteStateError implements AddNoteStateError {
-  const _$AddNoteStateError({this.exception});
+  const _$AddNoteStateError(this.message);
 
   @override
-  final Exception? exception;
+  final String message;
 
   @override
   String toString() {
-    return 'AddNoteState.error(exception: $exception)';
+    return 'AddNoteState.error(message: $message)';
   }
 
   @override
@@ -511,12 +511,12 @@ class _$AddNoteStateError implements AddNoteStateError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AddNoteStateError &&
-            const DeepCollectionEquality().equals(other.exception, exception));
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(exception));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -529,9 +529,9 @@ class _$AddNoteStateError implements AddNoteStateError {
     required TResult Function() idle,
     required TResult Function() loading,
     required TResult Function() success,
-    required TResult Function(Exception? exception) error,
+    required TResult Function(String message) error,
   }) {
-    return error(exception);
+    return error(message);
   }
 
   @override
@@ -540,9 +540,9 @@ class _$AddNoteStateError implements AddNoteStateError {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
   }) {
-    return error?.call(exception);
+    return error?.call(message);
   }
 
   @override
@@ -551,11 +551,11 @@ class _$AddNoteStateError implements AddNoteStateError {
     TResult Function()? idle,
     TResult Function()? loading,
     TResult Function()? success,
-    TResult Function(Exception? exception)? error,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(exception);
+      return error(message);
     }
     return orElse();
   }
@@ -599,9 +599,9 @@ class _$AddNoteStateError implements AddNoteStateError {
 }
 
 abstract class AddNoteStateError implements AddNoteState {
-  const factory AddNoteStateError({Exception? exception}) = _$AddNoteStateError;
+  const factory AddNoteStateError(String message) = _$AddNoteStateError;
 
-  Exception? get exception;
+  String get message;
   @JsonKey(ignore: true)
   $AddNoteStateErrorCopyWith<AddNoteStateError> get copyWith =>
       throw _privateConstructorUsedError;

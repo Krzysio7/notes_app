@@ -5,11 +5,11 @@ import 'package:notes_app/domain/note/note_failure.dart';
 import 'package:notes_app/domain/note/repository/note_repository.dart';
 
 @injectable
-class SaveNoteUseCase {
-  const SaveNoteUseCase(this._noteRepository);
+class GetNotesListUseCase {
+  const GetNotesListUseCase(this._noteRepository);
 
   final NoteRepository _noteRepository;
 
-  Future<Either<NoteFailure, Unit>> call(Note note) async =>
-      _noteRepository.insertNote(note);
+  Future<Either<NoteFailure, List<Note>>> call() async =>
+      _noteRepository.getNotesList();
 }

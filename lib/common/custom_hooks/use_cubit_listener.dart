@@ -8,7 +8,7 @@ typedef CubitListener<State, BuildContext> = void Function(
 
 bool defaultBuildWhen<State>(State s) => true;
 
-State? useCubitBuilder<Bloc extends Cubit, State>(
+State? useCubitBuilder<Bloc extends Cubit<dynamic>, State>(
   Cubit<State> bloc, {
   CubitBuilderCondition<State>? buildWhen,
 }) {
@@ -19,7 +19,7 @@ State? useCubitBuilder<Bloc extends Cubit, State>(
   return useStream(state, initialData: bloc.state).data;
 }
 
-void useCubitListener<Bloc extends Cubit, State>(
+void useCubitListener<Bloc extends Cubit<dynamic>, State>(
   Cubit<State> bloc,
   CubitListener<State, BuildContext> listener, {
   CubitBuilderCondition<State>? listenWhen,

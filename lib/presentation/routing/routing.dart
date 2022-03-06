@@ -9,7 +9,9 @@ final GoRouter router = GoRouter(
     GoRoute(
       name: HomePage.name,
       path: HomePage.path,
-      builder: (_, state) => HomePage(key: state.pageKey),
+      builder: (_, state) => HomePage(
+        key: state.pageKey,
+      ),
     ),
     GoRoute(
       name: AddNotePage.name,
